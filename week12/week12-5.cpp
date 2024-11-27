@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int a[100][100];
+int main(){
+	int T,N,now;
+	char c,c2;
+	cin>>T;
+	for(int t=1;t<=T;t++){
+		cin>>c>>c2>>N;
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				cin>>a[i][j];
+				
+			}
+		}
+		
+		int bad=0;
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				if(a[i][j]<0)bad=1;
+				if(a[i][j]!=a[N-i-1][N-j-1])bad=1;
+			}
+		}
+		if(bad==0)cout<<"Test #"<<t<<": Symmetric."<<endl;
+		else cout<<"Test #"<<t<<": Non-symmetric."<<endl;
+	}
+}
